@@ -1,0 +1,1 @@
+CREATE DATABASE mgmvp_auth; USE mgmvp_auth; GRANT ALL PRIVILEGES ON mgmvp_auth.* TO 'mgmvp_auth'@'localhost' IDENTIFIED BY "auth1234";
