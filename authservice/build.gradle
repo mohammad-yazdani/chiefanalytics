@@ -34,6 +34,7 @@ dependencies {
 	compile group: 'org.springframework', name: 'spring-orm', version: '4.3.10.RELEASE'
 	compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.10.RELEASE'
 	compile group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: '8.5.20'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.5.7.RELEASE'
 	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.10.Final'
 	compile('com.auth0:java-jwt:3.2.0')
 	compile group: 'commons-logging', name: 'commons-logging', version: '1.1.1'
