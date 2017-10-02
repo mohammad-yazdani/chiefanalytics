@@ -1,11 +1,13 @@
 package com.chiefanalytics.interpreter.model;
 
+import java.io.File;
+
 public abstract class InputFile {
 
     /*
     This represent the absolute path of file on file system.
      */
-    protected String abspath;
+    public Object data;
 
-    public abstract byte[] getData();
+    public abstract File publish();
 }

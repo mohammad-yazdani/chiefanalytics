@@ -7,8 +7,8 @@ This class is the parent decorator class.
  */
 public abstract class Interpreter extends InputFile {
 
-    protected InputFile inputFile;
+    InputFile inputFile;
 
-    protected abstract byte[] interpret ();
+    protected abstract void interpret ();
 
 }
