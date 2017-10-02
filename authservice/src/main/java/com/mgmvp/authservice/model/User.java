@@ -29,6 +29,10 @@ public class User {
     @Column(name = "auth")
     private String auth;
 
+    public User() {
+
+    }
+
     public User (String username, String email, String password) {
         if (username != null) this.username = username;
         else this.username = email;

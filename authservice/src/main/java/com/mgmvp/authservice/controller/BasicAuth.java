@@ -2,6 +2,7 @@ package com.mgmvp.authservice.controller;
 
 import com.mgmvp.authservice.DAO.UserDAO;
 import com.mgmvp.authservice.model.User;
+import com.mgmvp.authservice.service.Jwt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 @RestController
 public class BasicAuth {
@@ -37,7 +42,19 @@ public class BasicAuth {
         User user = userDAO.findByUsername(username);
 
         if (BCrypt.checkpw(password, user.getAuth())) {
+
             String jwt = "";
+
+            try {
+                jwt = Jwt.generateToken();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InvalidKeySpecException e) {
+                e.printStackTrace();
+            }
+
             HttpHeaders responseHeaders = new HttpHeaders();
             responseHeaders.set("jwt", jwt);
             return new ResponseEntity<>(user.toString(), responseHeaders, HttpStatus.ACCEPTED);
