@@ -1,6 +1,7 @@
 package com.chiefanalytics.interpreter.controller;
 
 import org.apache.poi.ss.usermodel.*;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,16 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
 import java.util.Iterator;
-
-import java.io.IOException;
 
 @RestController
 public class ExcelController implements Controller {
-
-    private static String MY_FILE = "testFile.xlsx";
 
     private static Logger log = LoggerFactory.getLogger(ExcelController.class);
 
@@ -36,33 +32,30 @@ public class ExcelController implements Controller {
     }
 
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-    public void uploadFileHandler(@RequestParam("name") String name, @RequestParam("file") MultipartFile File) {
+    public void uploadFileHandler(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
         try {
-            File f = new File(MY_FILE);
-            FileInputStream excelFile = new FileInputStream(f);
-            System.out.println("Getting file: "+ f.getCanonicalPath());
+            InputStream initialStream = file.getInputStream();
+            byte[] buffer = new byte[initialStream.available()];
+            if (initialStream.read(buffer) < 1) throw new IOException("Empty file uploaded.");
+
+            File localFile = new File(name);
+            OutputStream outStream = new FileOutputStream(localFile);
+            outStream.write(buffer);
+            FileInputStream excelFile = new FileInputStream(localFile);
+
+            log.info("Getting file: "+ localFile.getCanonicalPath());
+
             Workbook workbook = new XSSFWorkbook(excelFile);
-            Sheet datatypeSheet = workbook.getSheetAt(0);
-            Iterator<Row> iterator = datatypeSheet.iterator();
+            Sheet dataTypeSheet = workbook.getSheetAt(0);
 
-            // prints out lines from excel file
-            while (iterator.hasNext()) {
-
-                Row currentRow = iterator.next();
-                Iterator<Cell> cellIterator = currentRow.iterator();
-
-                while (cellIterator.hasNext()) {
-
-                    Cell currentCell = cellIterator.next();
+            for (Row currentRow : dataTypeSheet) {
+                for (Cell currentCell : currentRow) {
                     if (currentCell.getCellTypeEnum() == CellType.STRING) {
-                        System.out.print(currentCell.getStringCellValue() + "--");
+                        log.info(currentCell.getStringCellValue() + "--");
                     } else if (currentCell.getCellTypeEnum() == CellType.NUMERIC) {
-                        System.out.print(currentCell.getNumericCellValue() + "--");
+                        log.info(currentCell.getNumericCellValue() + "--");
                     }
-
                 }
-                System.out.println();
-
             }
         } catch (IOException e) {
             log.error(e.getMessage());
