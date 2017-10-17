@@ -1,8 +1,7 @@
 package com.chiefanalytics.interpreter.parse;
 
-public class KeyValueParse extends Parser {
+public class NoTableParse extends Parser {
     @Override
     public void Parse() {
-
     }
 }

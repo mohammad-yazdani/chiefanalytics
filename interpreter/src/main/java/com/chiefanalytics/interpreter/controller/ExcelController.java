@@ -44,19 +44,6 @@ public class ExcelController implements Controller {
             FileInputStream excelFile = new FileInputStream(localFile);
 
             log.info("Getting file: "+ localFile.getCanonicalPath());
-
-            Workbook workbook = new XSSFWorkbook(excelFile);
-            Sheet dataTypeSheet = workbook.getSheetAt(0);
-
-            for (Row currentRow : dataTypeSheet) {
-                for (Cell currentCell : currentRow) {
-                    if (currentCell.getCellTypeEnum() == CellType.STRING) {
-                        log.info(currentCell.getStringCellValue() + "--");
-                    } else if (currentCell.getCellTypeEnum() == CellType.NUMERIC) {
-                        log.info(currentCell.getNumericCellValue() + "--");
-                    }
-                }
-            }
         } catch (IOException e) {
             log.error(e.getMessage());
         }
