@@ -61,10 +61,10 @@
     <coordinates>
       <x>680</x>
       <y>540</y>
-      <w>210</w>
+      <w>150</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>TableParser
+    <panel_attributes>TableParse
 --
 + Parse()</panel_attributes>
     <additional_attributes/>
@@ -72,12 +72,12 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>430</x>
+      <x>500</x>
       <y>540</y>
-      <w>210</w>
+      <w>150</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>DictParser
+    <panel_attributes>DictParse
 --
 + Parse()</panel_attributes>
     <additional_attributes/>
@@ -96,13 +96,13 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
+      <x>310</x>
       <y>500</y>
-      <w>110</w>
+      <w>370</w>
       <h>40</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;90.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;350.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -304,5 +304,29 @@
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;40.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>540</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>NoTableParse
+--
++ Parse()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>510</y>
+      <w>30</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
   </element>
 </diagram>
