@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>14</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>602</y>
+      <w>238</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>knowledgeBase</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>364</x>
+      <y>308</y>
+      <w>476</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>/Dispatch/
+--
+- service: String
+- package: InputFile
+--
+# status: Enum
+--
+/+ initiate(jwt: String): String/
+/+ send(gate: String, data: InputStream): void/
+/+ finish(gate: String): Boolean/
+/+ getInputStream(): InputStream/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>672</y>
+      <w>238</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>DataEngine</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>462</x>
+      <y>532</y>
+      <w>266</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;170.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>462</x>
+      <y>532</y>
+      <w>266</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0;170.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>952</x>
+      <y>336</y>
+      <w>224</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>DispatchException
+--
+- from: String
+- to: String
+- cause: String
+- code: Int
+--
++ *Getters*
++ *Setters*</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
