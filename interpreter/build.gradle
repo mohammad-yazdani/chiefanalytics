@@ -29,6 +29,7 @@ ext {
 
 dependencies {
     compile group: 'org.apache.poi', name: 'poi', version: '3.17'
+    compile group: 'org.apache.poi', name: 'poi', version: '3.17'
     compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.15'
 	compile('org.springframework.cloud:spring-cloud-starter-eureka')
 	compile('org.springframework.cloud:spring-cloud-starter-feign')
@@ -36,6 +37,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-integration')
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.cloud:spring-cloud-stream-binder-kafka')
+	compile('org.springframework.cloud:spring-cloud-starter-stream-kafka')
+	compile('org.springframework.cloud:spring-cloud-stream')
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.16'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
