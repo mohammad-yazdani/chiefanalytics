@@ -2,8 +2,8 @@ const consumer = require('./consumer');
 
 class interpreter extends consumer {
     constructor() {
-        //super("view-service");
-        super("none", 3); // TODO : for test
+        //super("interpreter-to-view", 3); // TODO : for test
+        super("test", 1); // TODO : for test
     }
 }
 
