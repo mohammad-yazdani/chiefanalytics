@@ -10,6 +10,6 @@ public class ViewDispatch extends Dispatch {
 
     @Override
     public String send(InputFile payload) {
-        return payload.toString();
+        return this.service + payload.toString();
     }
 }

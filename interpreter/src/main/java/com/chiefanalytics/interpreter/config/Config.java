@@ -1,5 +1,6 @@
 package com.chiefanalytics.interpreter.config;
 
+import com.chiefanalytics.interpreter.model.InputFile;
 import com.chiefanalytics.interpreter.service.dispatch.ViewDispatch;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,4 +13,6 @@ public class Config {
         return new ViewDispatch();
     }
 
+    @Bean
+    public InputFile inputFile() {return null;}
 }
