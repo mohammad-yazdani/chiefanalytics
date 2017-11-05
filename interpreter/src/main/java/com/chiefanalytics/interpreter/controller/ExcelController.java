@@ -17,7 +17,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-
 @RestController
 public class ExcelController implements Controller {
 
@@ -40,20 +39,61 @@ public class ExcelController implements Controller {
 
     private static String MY_FILE = "testFile.xlsx";
 
-    public boolean explore(XSSFSheet sheet, int row, int cell, int rowEndNum, int cellEndNum) {
+//    public boolean exploreKeyValue(XSSFSheet sheet, int row, int cell, int rowEndNum, int cellEndNum) {
+//        if (row < 0 || row > rowEndNum || cell < 0 || cell > cellEndNum ||
+//                sheet.getRow(row).getCell(cell).getStringCellValue() == "visited") {
+//            return false;
+//        }
+//        int nextCell = cell + 1;
+//        //System.out.printf("%s string \n", sheet.getRow(row).getCell(nextCell).getStringCellValue());
+//        if (sheet.getRow(row).getCell(nextCell).getCellTypeEnum() == CellType.STRING ||
+//                sheet.getRow(row).getCell(nextCell).getCellTypeEnum() == CellType.NUMERIC) {
+//            sheet.getRow(row).getCell(cell).setCellValue("visited");
+//            sheet.getRow(row).getCell(nextCell).setCellValue("visited");
+//            return true;
+//        }
+//        return false;
+//
+//    }
+
+    public boolean exploreTable(XSSFSheet sheet, int row, int cell, int rowEndNum, int cellEndNum) {
         if (row < 0 || row > rowEndNum || cell < 0 || cell > cellEndNum ||
                 sheet.getRow(row).getCell(cell).getStringCellValue() == "visited") {
             return false;
         }
-        int nextCell = cell + 1;
-        System.out.printf("%s string \n", sheet.getRow(row).getCell(nextCell).getStringCellValue());
-        if (sheet.getRow(row).getCell(nextCell).getCellTypeEnum() == CellType.STRING) {
-            sheet.getRow(row).getCell(cell).setCellValue("visited");
-            sheet.getRow(row).getCell(nextCell).setCellValue("visited");
-            return true;
-        }
-        return false;
 
+        // get the num of cols in the table
+        int tableColLength = sheet.getRow(row).getLastCellNum() - cell;
+
+        // get the num of rows in the table
+        int tableRowLength = 0;
+        for (int rowIndex = row; rowIndex <= rowEndNum; ++rowIndex) {
+            try {
+                if (sheet.getRow(rowIndex).getCell(cell).getCellTypeEnum() == CellType.STRING) {
+                    ++tableRowLength;
+                } else {
+                    break;
+                }
+            } catch (Exception e) {
+                continue;
+            }
+
+        }
+
+        // mark all contents of the table to be visited
+        try {
+            for (int i = 0; i < tableRowLength; ++i) {
+                for (int j = 0; j < tableColLength; ++j) {
+                    if (sheet.getRow(i + row).getCell(j + cell).getCellTypeEnum() == CellType.STRING) {
+                        sheet.getRow(i + row).getCell(j + cell).setCellValue("visited");
+                    }
+                }
+
+            }
+        } catch (Exception e) {
+            System.out.printf("ERROR IN MARKING VISITED\n");
+        }
+        return true;
     }
 
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
@@ -70,21 +110,32 @@ public class ExcelController implements Controller {
             //Get first/desired sheet from the workbook
             XSSFSheet sheet = workbook.getSheetAt(0);
 
-            int count = 0;
+            int keyValueCount = 0;
+            int tableCount = 0;
+            int cellEnd = 0;
             int rowEnd = sheet.getLastRowNum();
-            int cellEnd = sheet.getRow(rowEnd).getLastCellNum();
+            for (int i = 0; i <= rowEnd; ++i) {
+                try {
+                    cellEnd = cellEnd > sheet.getRow(i).getLastCellNum() ? cellEnd : sheet.getRow(i).getLastCellNum();
+                } catch (Exception e) {
+                    continue;
+                }
+            }
 
             //System.out.printf("%d row \n", rowEnd);
-            //System.out.printf("%d cell \n", cellEnd);
+            //System.out.printf("%d cellEnd \n", cellEnd);
 
             for (int rowIndex = 0; rowIndex <= rowEnd; ++rowIndex) {
                 for (int cellIndex = 0; cellIndex <= cellEnd; ++cellIndex) {
-                    //System.out.printf("%d row \n", rowIndex);
-                    //System.out.printf("%d cell \n", cellIndex);
+//                    System.out.printf("%d row \n", rowIndex);
+//                    System.out.printf("%d cell \n", cellIndex);
                     try {
                         if (sheet.getRow(rowIndex).getCell(cellIndex).getCellTypeEnum() == CellType.STRING) {
-                            if (explore(sheet, rowIndex, cellIndex, rowEnd, cellEnd)) {
-                                ++count;
+//                            if (exploreKeyValue(sheet, rowIndex, cellIndex, rowEnd, cellEnd)) {
+//                                ++keyValueCount;
+//                            }
+                            if (exploreTable(sheet, rowIndex, cellIndex, rowEnd, cellEnd)) {
+                                ++tableCount;
                             }
                         }
                     } catch (Exception e) {
@@ -94,8 +145,7 @@ public class ExcelController implements Controller {
             }
 
             log.info("Getting file: "+ f.getCanonicalPath());
-            System.out.printf("%d count \n", count);
-            //Integer greeting = this.restTemplate.postForObject("http://localhost:8090/uploadFile", count, Integer);
+            System.out.printf("%d Table count \n", tableCount);
         } catch (IOException e) {
             log.error(e.getMessage());
         }
