@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>700</x>
-      <y>602</y>
+      <x>854</x>
+      <y>546</y>
       <w>238</w>
       <h>42</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>364</x>
-      <y>308</y>
+      <x>518</x>
+      <y>252</y>
       <w>476</w>
       <h>238</h>
     </coordinates>
@@ -36,8 +36,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>700</x>
-      <y>672</y>
+      <x>854</x>
+      <y>616</y>
       <w>238</w>
       <h>42</h>
     </coordinates>
@@ -47,8 +47,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>462</x>
-      <y>532</y>
+      <x>616</x>
+      <y>476</y>
       <w>266</w>
       <h>112</h>
     </coordinates>
@@ -58,8 +58,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>462</x>
-      <y>532</y>
+      <x>616</x>
+      <y>476</y>
       <w>266</w>
       <h>182</h>
     </coordinates>
@@ -69,8 +69,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>952</x>
-      <y>336</y>
+      <x>1106</x>
+      <y>280</y>
       <w>224</w>
       <h>210</h>
     </coordinates>
@@ -83,6 +83,21 @@
 --
 + *Getters*
 + *Setters*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>490</y>
+      <w>294</w>
+      <h>266</h>
+    </coordinates>
+    <panel_attributes>/Feed/
+--
+- service: String
+--
+</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

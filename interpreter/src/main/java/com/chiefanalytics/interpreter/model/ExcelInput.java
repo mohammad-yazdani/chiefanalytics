@@ -1,4 +1,16 @@
 package com.chiefanalytics.interpreter.model;
 
-public class ExcelInput {
+import java.io.File;
+
+public class ExcelInput extends InputFile {
+    public ExcelInput(File originalFile) {
+        super(originalFile);
+    }
+
+
+
+    @Override
+    Object extractData() {
+        return null;
+    }
 }
