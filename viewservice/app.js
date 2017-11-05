@@ -8,6 +8,9 @@ let bodyParser = require('body-parser');
 let index = require('./routes/index');
 let users = require('./routes/users');
 let status = require('./routes/status');
+let feed = require('./routes/feed');
+
+let interpreter = require('./consumer/interpereter');
 
 let app = express();
 
@@ -21,11 +24,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'app/build')));
 
 app.use('/', index);
 app.use('/users', users);
 app.use('/status', status);
+app.use('/feed', feed);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -44,5 +48,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// Initiate Kafka feed
+new interpreter();
 
 module.exports = app;

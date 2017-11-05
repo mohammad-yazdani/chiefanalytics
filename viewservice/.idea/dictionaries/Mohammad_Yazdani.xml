@@ -2,8 +2,12 @@
   <dictionary name="Mohammad Yazdani">
     <words>
       <w>addr</w>
+      <w>dirname</w>
       <w>eacces</w>
       <w>eaddrinuse</w>
+      <w>filetype</w>
+      <w>myfile</w>
+      <w>onload</w>
       <w>viewservice</w>
     </words>
   </dictionary>

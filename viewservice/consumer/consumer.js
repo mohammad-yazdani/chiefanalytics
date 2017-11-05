@@ -1,4 +1,5 @@
 let kafka = require('kafka-node');
+let feedQueue = require('../core/feedQueue');
 
 class consumer {
 
@@ -14,9 +15,21 @@ class consumer {
             {
                 autoCommit: false
             }
-        )
+        );
+
+        this.instance.on('message', consumer.addToQueue);
     }
 
+    static addToQueue(message) {
+        let payload = message.value;
+        try {
+            payload = JSON.parse(payload);
+        }
+        catch(_) {
+            console.error("Cannot parse " + message.value);
+        }
+        (new feedQueue()).add(payload.name, payload.file);
+    }
 
     get instance() {
         return this._instance;
