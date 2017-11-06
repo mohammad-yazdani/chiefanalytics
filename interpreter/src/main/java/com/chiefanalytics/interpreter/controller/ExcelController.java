@@ -5,25 +5,21 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Objects;
 
 @RestController
 public class ExcelController implements Controller {
 
     private static Logger log = LoggerFactory.getLogger(ExcelController.class);
-
-    @Autowired
-    RestTemplate restTemplate;
 
     @Override
     public String getBase() {
@@ -37,9 +33,7 @@ public class ExcelController implements Controller {
         return null;
     }
 
-    private static String MY_FILE = "testFile.xlsx";
-
-//    public boolean exploreKeyValue(XSSFSheet sheet, int row, int cell, int rowEndNum, int cellEndNum) {
+    //    public boolean exploreKeyValue(XSSFSheet sheet, int row, int cell, int rowEndNum, int cellEndNum) {
 //        if (row < 0 || row > rowEndNum || cell < 0 || cell > cellEndNum ||
 //                sheet.getRow(row).getCell(cell).getStringCellValue() == "visited") {
 //            return false;
@@ -56,9 +50,9 @@ public class ExcelController implements Controller {
 //
 //    }
 
-    public boolean exploreTable(XSSFSheet sheet, int row, int cell, int rowEndNum, int cellEndNum) {
+    private boolean exploreTable(XSSFSheet sheet, int row, int cell, int rowEndNum, int cellEndNum) {
         if (row < 0 || row > rowEndNum || cell < 0 || cell > cellEndNum ||
-                sheet.getRow(row).getCell(cell).getStringCellValue() == "visited") {
+                Objects.equals(sheet.getRow(row).getCell(cell).getStringCellValue(), "visited")) {
             return false;
         }
 
@@ -74,8 +68,7 @@ public class ExcelController implements Controller {
                 } else {
                     break;
                 }
-            } catch (Exception e) {
-                continue;
+            } catch (Exception ignored) {
             }
 
         }
@@ -101,6 +94,9 @@ public class ExcelController implements Controller {
 
         try {
 
+            log.info("File: " + file + " with name: " + name);
+
+            String MY_FILE = "testFile.xlsx";
             File f = new File(MY_FILE);
             FileInputStream excelFile = new FileInputStream(f.getCanonicalPath());
 
@@ -110,16 +106,14 @@ public class ExcelController implements Controller {
             //Get first/desired sheet from the workbook
             XSSFSheet sheet = workbook.getSheetAt(0);
 
-            int keyValueCount = 0;
+            // int keyValueCount = 0;
             int tableCount = 0;
             int cellEnd = 0;
             int rowEnd = sheet.getLastRowNum();
             for (int i = 0; i <= rowEnd; ++i) {
                 try {
                     cellEnd = cellEnd > sheet.getRow(i).getLastCellNum() ? cellEnd : sheet.getRow(i).getLastCellNum();
-                } catch (Exception e) {
-                    continue;
-                }
+                } catch (Exception ignored) {}
             }
 
             //System.out.printf("%d row \n", rowEnd);
@@ -138,9 +132,7 @@ public class ExcelController implements Controller {
                                 ++tableCount;
                             }
                         }
-                    } catch (Exception e) {
-                        continue;
-                    }
+                    } catch (Exception ignored) {}
                 }
             }
 
