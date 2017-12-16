@@ -10,7 +10,7 @@ public abstract class InputFile {
     // TODO : Change later
     private Object data;
 
-    private Metadata metadata;
+    //private Metadata metadata;
 
     // TODO : Implement
     public InputStream stringify() {return null;}
