@@ -1,27 +1,22 @@
 package com.chiefanalytics.interpreter.controller;
 
-<<<<<<< HEAD
+
 import com.chiefanalytics.interpreter.service.dispatch.ViewDispatch;
 import org.json.simple.JSONObject;
-=======
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
->>>>>>> 709009e1713d2ad30d0aab7ca5d9703e16fc468a
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-<<<<<<< HEAD
-import java.io.*;
-=======
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Objects;
->>>>>>> 709009e1713d2ad30d0aab7ca5d9703e16fc468a
+
 
 @RestController
 public class ExcelController implements Controller {
@@ -48,26 +43,8 @@ public class ExcelController implements Controller {
         return null;
     }
 
-<<<<<<< HEAD
-    @CrossOrigin(origins = "http://localhost:3000")
-=======
-    //    public boolean exploreKeyValue(XSSFSheet sheet, int row, int cell, int rowEndNum, int cellEndNum) {
-//        if (row < 0 || row > rowEndNum || cell < 0 || cell > cellEndNum ||
-//                sheet.getRow(row).getCell(cell).getStringCellValue() == "visited") {
-//            return false;
-//        }
-//        int nextCell = cell + 1;
-//        //System.out.printf("%s string \n", sheet.getRow(row).getCell(nextCell).getStringCellValue());
-//        if (sheet.getRow(row).getCell(nextCell).getCellTypeEnum() == CellType.STRING ||
-//                sheet.getRow(row).getCell(nextCell).getCellTypeEnum() == CellType.NUMERIC) {
-//            sheet.getRow(row).getCell(cell).setCellValue("visited");
-//            sheet.getRow(row).getCell(nextCell).setCellValue("visited");
-//            return true;
-//        }
-//        return false;
-//
-//    }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     private boolean exploreTable(XSSFSheet sheet, int row, int cell, int rowEndNum, int cellEndNum) {
         if (row < 0 || row > rowEndNum || cell < 0 || cell > cellEndNum ||
                 Objects.equals(sheet.getRow(row).getCell(cell).getStringCellValue(), "visited")) {
@@ -102,12 +79,11 @@ public class ExcelController implements Controller {
 
             }
         } catch (Exception e) {
-            System.out.printf("ERROR IN MARKING VISITED\n");
+            System.out.print("ERROR IN MARKING VISITED\n");
         }
         return true;
     }
 
->>>>>>> 709009e1713d2ad30d0aab7ca5d9703e16fc468a
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
     public void uploadFileHandler(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
 
@@ -155,19 +131,17 @@ public class ExcelController implements Controller {
                 }
             }
 
-<<<<<<< HEAD
             JSONObject jsonPayload = new JSONObject();
             jsonPayload.put("name", name);
-            jsonPayload.put("file", localFile.getPath());
+            jsonPayload.put("file", f.getPath());
 
             viewDispatch.send(jsonPayload.toJSONString());
 
             log.info(excelFile.toString());
-            log.info("Getting file: "+ localFile.getCanonicalPath());
-=======
+            log.info("Getting file: "+ f.getCanonicalPath());
+
             log.info("Getting file: "+ f.getCanonicalPath());
             System.out.printf("%d Table count \n", tableCount);
->>>>>>> 709009e1713d2ad30d0aab7ca5d9703e16fc468a
         } catch (IOException e) {
             log.error(e.getMessage());
         }

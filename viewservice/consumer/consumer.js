@@ -8,7 +8,7 @@ class consumer {
             topic: defaultTopic, partition: partition
         }];
         this.client = new kafka.Client();
-        this._instance = new kafka.Consumer(
+        this._instance = new kafka.HighLevelConsumer(
             this.client,
             this.topics
             ,

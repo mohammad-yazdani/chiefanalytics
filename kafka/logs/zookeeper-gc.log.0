@@ -1,0 +1,266 @@
+0.406: [GC pause (young), 4.40510500 secs]
+   [Parallel Time: 3219.0 ms]
+      [GC Worker Start Time (ms):  406624.8  406661.9  406676.1  406716.7  406748.6  406760.6  406768.7  406784.3]
+      [Update RS (ms):  0.5  0.4  0.5  66.3  0.4  0.1  0.2  0.2
+       Avg:   8.6, Min:   0.1, Max:  66.3]
+         [Processed Buffers : 0 0 0 17 0 0 0 0
+          Sum: 17, Avg: 2, Min: 0, Max: 17]
+      [Ext Root Scanning (ms):  2325.7  2271.3  2245.9  2213.3  2195.2  2119.2  2159.6  2147.5
+       Avg: 2209.7, Min: 2119.2, Max: 2325.7]
+      [Mark Stack Scanning (ms):  0.2  0.2  0.2  1.5  0.1  0.1  0.1  0.1
+       Avg:   0.3, Min:   0.1, Max:   1.5]
+      [Scan RS (ms):  0.2  0.3  0.2  2.3  0.3  0.1  0.1  0.2
+       Avg:   0.5, Min:   0.1, Max:   2.3]
+      [Object Copy (ms):  659.2  648.0  660.1  581.7  640.8  686.3  655.9  672.5
+       Avg: 650.6, Min: 581.7, Max: 686.3]
+      [Termination (ms):  0.6  183.7  170.0  191.2  189.0  184.8  188.8  1.1
+       Avg: 138.6, Min:   0.6, Max: 191.2]
+         [Termination Attempts : 1 1 1 1 1 1 1 1
+          Sum: 8, Avg: 1, Min: 1, Max: 1]
+      [GC Worker End Time (ms):  409626.8  409775.3  409761.8  409782.8  409780.2  409776.3  409779.9  409626.8]
+      [Other: 210.8 ms]
+   [Clear CT: 196.8 ms]
+   [Other: 989.2 ms]
+      [Choose CSet:   0.1 ms]
+   [ 1024K->493K(512M)]
+ [Times: user=0.00 sys=0.01, real=0.00 secs] 
+0.459: [GC pause (young), 1.51818300 secs]
+   [Parallel Time: 1428.4 ms]
+      [GC Worker Start Time (ms):  458581.5  458634.5  458646.4  458663.6  458682.9  458704.9  458714.7  458892.0]
+      [Update RS (ms):  0.3  120.5  0.4  135.4  14.8  155.9  133.8  93.9
+       Avg:  81.9, Min:   0.3, Max: 155.9]
+         [Processed Buffers : 0 1 0 1 4 1 1 1
+          Sum: 9, Avg: 1, Min: 0, Max: 4]
+      [Ext Root Scanning (ms):  1308.9  201.7  243.3  180.6  199.2  145.0  121.1  3.3
+       Avg: 300.4, Min:   3.3, Max: 1308.9]
+      [Mark Stack Scanning (ms):  0.1  0.2  0.2  0.2  0.1  0.2  1.7  0.1
+       Avg:   0.3, Min:   0.1, Max:   1.7]
+      [Scan RS (ms):  0.3  2.2  2.3  2.2  256.2  1.9  2.0  2.1
+       Avg:  33.6, Min:   0.3, Max: 256.2]
+      [Object Copy (ms):  31.1  235.3  300.0  176.8  38.7  182.2  219.4  199.3
+       Avg: 172.8, Min:  31.1, Max: 300.0]
+      [Termination (ms):  0.8  728.2  729.8  757.9  729.0  732.5  729.2  731.9
+       Avg: 642.4, Min:   0.8, Max: 757.9]
+         [Termination Attempts : 1 3 4 3 2 5 4 5
+          Sum: 27, Avg: 3, Min: 1, Max: 5]
+      [GC Worker End Time (ms):  459927.6  459927.9  459927.0  459936.9  459927.1  459927.7  459926.9  459927.9]
+      [Other: 196.9 ms]
+   [Clear CT:  60.7 ms]
+   [Other:  29.1 ms]
+      [Choose CSet:   0.1 ms]
+   [ 1517K->813K(512M)]
+ [Times: user=0.01 sys=0.00, real=0.00 secs] 
+0.519: [GC pause (young), 0.61760900 secs]
+   [Parallel Time: 482.7 ms]
+      [GC Worker Start Time (ms):  519446.9  519455.1  519475.8  519491.3  519516.8  519530.7  519546.4  519562.4]
+      [Update RS (ms):  11.8  0.3  82.8  15.6  28.7  94.7  104.7  101.7
+       Avg:  55.0, Min:   0.3, Max: 104.7]
+         [Processed Buffers : 1 0 2 2 1 1 1 1
+          Sum: 9, Avg: 1, Min: 0, Max: 2]
+      [Ext Root Scanning (ms):  217.8  241.9  171.3  178.9  162.0  117.8  94.9  95.0
+       Avg: 160.0, Min:  94.9, Max: 241.9]
+      [Mark Stack Scanning (ms):  0.1  0.1  0.1  0.1  0.1  0.1  1.7  0.2
+       Avg:   0.3, Min:   0.1, Max:   1.7]
+      [Scan RS (ms):  1.8  0.3  0.2  7.9  0.3  0.2  0.2  0.2
+       Avg:   1.4, Min:   0.2, Max:   7.9]
+      [Object Copy (ms):  155.7  138.2  104.7  141.3  129.8  91.9  87.3  76.0
+       Avg: 115.6, Min:  76.0, Max: 155.7]
+      [Termination (ms):  2.5  2.1  2.4  2.3  0.1  2.3  2.3  2.4
+       Avg:   2.1, Min:   0.1, Max:   2.5]
+         [Termination Attempts : 1 1 1 1 1 1 1 1
+          Sum: 8, Avg: 1, Min: 1, Max: 1]
+      [GC Worker End Time (ms):  519844.2  519844.1  519843.8  519865.7  519844.1  519847.0  519843.8  519843.9]
+      [Other: 148.4 ms]
+   [Clear CT:  92.8 ms]
+   [Other:  42.1 ms]
+      [Choose CSet:   0.1 ms]
+   [ 1837K->1048K(512M)]
+ [Times: user=0.01 sys=0.00, real=0.00 secs] 
+0.586: [GC pause (young), 1.31627300 secs]
+   [Parallel Time: 1141.4 ms]
+      [GC Worker Start Time (ms):  586478.1  586513.7  586526.9  586565.4  586581.9  586598.1  586615.3  586632.1]
+      [Update RS (ms):  0.3  0.4  68.0  44.1  0.3  31.0  37.4  18.7
+       Avg:  25.0, Min:   0.3, Max:  68.0]
+         [Processed Buffers : 0 0 1 1 0 1 1 2
+          Sum: 6, Avg: 0, Min: 0, Max: 2]
+      [Ext Root Scanning (ms):  1024.3  303.7  205.5  173.6  190.5  145.2  119.7  114.8
+       Avg: 284.7, Min: 114.8, Max: 1024.3]
+      [Mark Stack Scanning (ms):  0.2  0.1  1.6  0.1  0.2  0.1  0.2  0.1
+       Avg:   0.3, Min:   0.1, Max:   1.6]
+      [Scan RS (ms):  0.4  0.2  0.2  0.1  0.3  0.3  0.3  6.6
+       Avg:   1.1, Min:   0.1, Max:   6.6]
+      [Object Copy (ms):  28.4  100.8  112.3  138.5  146.5  138.9  149.5  151.2
+       Avg: 120.8, Min:  28.4, Max: 151.2]
+      [Termination (ms):  2.2  618.2  619.8  615.5  614.5  626.6  612.2  609.2
+       Avg: 539.8, Min:   2.2, Max: 626.6]
+         [Termination Attempts : 1 2 1 3 2 1 4 3
+          Sum: 17, Avg: 2, Min: 1, Max: 4]
+      [GC Worker End Time (ms):  587537.8  587541.4  587539.0  587541.6  587538.1  587544.4  587538.1  587538.1]
+      [Other: 169.8 ms]
+   [Clear CT: 126.4 ms]
+   [Other:  48.5 ms]
+      [Choose CSet:   0.1 ms]
+   [ 2072K->1289K(512M)]
+ [Times: user=0.00 sys=0.00, real=0.00 secs] 
+0.697: [GC pause (young), 0.70676900 secs]
+   [Parallel Time: 611.6 ms]
+      [GC Worker Start Time (ms):  696676.3  696708.8  696724.6  696747.4  696759.8  696779.9  696795.0  696810.9]
+      [Update RS (ms):  0.4  53.5  0.3  37.0  34.3  0.5  0.4  15.2
+       Avg:  17.7, Min:   0.3, Max:  53.5]
+         [Processed Buffers : 0 1 0 1 1 0 0 4
+          Sum: 7, Avg: 0, Min: 0, Max: 4]
+      [Ext Root Scanning (ms):  350.0  246.0  294.2  227.2  192.6  280.4  205.2  145.0
+       Avg: 242.6, Min: 145.0, Max: 350.0]
+      [Mark Stack Scanning (ms):  0.1  0.1  0.1  0.2  1.9  0.2  0.1  0.2
+       Avg:   0.4, Min:   0.1, Max:   1.9]
+      [Scan RS (ms):  0.3  0.2  0.2  0.2  2.5  0.2  0.3  22.1
+       Avg:   3.2, Min:   0.2, Max:  22.1]
+      [Object Copy (ms):  163.8  182.8  174.2  179.2  192.8  130.1  190.7  196.8
+       Avg: 176.3, Min: 130.1, Max: 196.8]
+      [Termination (ms):  3.0  1.8  0.1  4.2  4.2  3.0  2.7  3.2
+       Avg:   2.8, Min:   0.1, Max:   4.2]
+         [Termination Attempts : 2 2 1 1 1 2 2 2
+          Sum: 13, Avg: 1, Min: 1, Max: 2]
+      [GC Worker End Time (ms):  697199.4  697199.6  697199.4  697199.7  697199.7  697240.3  697199.6  697198.9]
+      [Other: 168.6 ms]
+   [Clear CT:  62.2 ms]
+   [Other:  32.9 ms]
+      [Choose CSet:   0.2 ms]
+   [ 2313K->1453K(512M)]
+ [Times: user=0.00 sys=0.00, real=0.00 secs] 
+0.721: [GC pause (young), 0.69867400 secs]
+   [Parallel Time: 512.8 ms]
+      [GC Worker Start Time (ms):  721406.0  721426.5  721440.5  721456.5  721472.5  721488.9  721664.4  721675.0]
+      [Update RS (ms):  0.3  0.2  68.5  13.1  5.6  32.1  0.4  0.4
+       Avg:  15.1, Min:   0.2, Max:  68.5]
+         [Processed Buffers : 0 0 1 1 1 1 0 0
+          Sum: 4, Avg: 0, Min: 0, Max: 1]
+      [Ext Root Scanning (ms):  373.2  219.7  194.5  191.3  169.8  148.1  2.9  3.3
+       Avg: 162.8, Min:   2.9, Max: 373.2]
+      [Mark Stack Scanning (ms):  0.2  0.1  1.6  0.1  0.2  0.1  0.1  0.1
+       Avg:   0.3, Min:   0.1, Max:   1.6]
+      [Scan RS (ms):  0.3  1.3  0.3  1.6  1.4  1.2  12.2  1.7
+       Avg:   2.5, Min:   0.3, Max:  12.2]
+      [Object Copy (ms):  43.1  81.9  6.7  38.9  76.6  31.3  47.7  22.4
+       Avg:  43.6, Min:   6.7, Max:  81.9]
+      [Termination (ms):  7.8  98.4  123.5  126.8  101.7  129.5  103.7  128.9
+       Avg: 102.5, Min:   7.8, Max: 129.5]
+         [Termination Attempts : 1 4 1 2 3 2 3 2
+          Sum: 18, Avg: 2, Min: 1, Max: 4]
+      [GC Worker End Time (ms):  721835.8  721832.4  721839.7  721835.4  721833.0  721835.0  721835.8  721835.9]
+      [Other: 186.0 ms]
+   [Clear CT: 137.5 ms]
+   [Other:  48.4 ms]
+      [Choose CSet:   0.1 ms]
+   [ 2477K->1525K(512M)]
+ [Times: user=0.00 sys=0.00, real=0.00 secs] 
+0.767: [GC pause (young), 0.74335700 secs]
+   [Parallel Time: 543.3 ms]
+      [GC Worker Start Time (ms):  767155.3  767170.0  767187.5  767201.0  767216.8  767231.5  767249.3  767557.8]
+      [Update RS (ms):  0.2  23.2  0.4  35.8  0.3  0.3  0.3  0.4
+       Avg:   7.6, Min:   0.2, Max:  35.8]
+         [Processed Buffers : 0 2 0 1 0 0 0 0
+          Sum: 3, Avg: 0, Min: 0, Max: 2]
+      [Ext Root Scanning (ms):  414.4  223.0  334.9  201.4  249.3  269.2  212.3  3.1
+       Avg: 238.4, Min:   3.1, Max: 414.4]
+      [Mark Stack Scanning (ms):  0.2  0.2  0.2  1.5  0.1  0.1  0.2  0.2
+       Avg:   0.3, Min:   0.1, Max:   1.5]
+      [Scan RS (ms):  0.2  7.1  0.3  0.3  0.2  0.3  0.3  0.2
+       Avg:   1.1, Min:   0.2, Max:   7.1]
+      [Object Copy (ms):  34.9  181.0  81.2  164.1  139.0  103.5  143.3  44.3
+       Avg: 111.4, Min:  34.9, Max: 181.0]
+      [Termination (ms):  0.6  0.1  0.4  1.7  0.7  0.5  0.8  0.6
+       Avg:   0.7, Min:   0.1, Max:   1.7]
+         [Termination Attempts : 3 1 1 2 2 2 2 2
+          Sum: 15, Avg: 1, Min: 1, Max: 3]
+      [GC Worker End Time (ms):  767611.2  767613.1  767610.6  767611.6  767611.8  767611.2  767611.6  767611.9]
+      [Other: 183.7 ms]
+   [Clear CT: 158.1 ms]
+   [Other:  42.0 ms]
+      [Choose CSet:   0.1 ms]
+   [ 2549K->1759K(512M)]
+ [Times: user=0.00 sys=0.00, real=0.00 secs] 
+0.799: [GC pause (young), 0.86474300 secs]
+   [Parallel Time: 767.7 ms]
+      [GC Worker Start Time (ms):  798816.1  798863.4  798877.8  798909.2  798923.1  798937.1  798952.3  798966.9]
+      [Update RS (ms):  0.2  13.6  0.3  0.3  0.3  62.8  0.3  0.3
+       Avg:   9.8, Min:   0.2, Max:  62.8]
+         [Processed Buffers : 0 1 0 0 0 1 0 0
+          Sum: 2, Avg: 0, Min: 0, Max: 1]
+      [Ext Root Scanning (ms):  225.0  153.1  173.1  152.4  146.9  93.0  550.7  81.3
+       Avg: 196.9, Min:  81.3, Max: 550.7]
+      [Mark Stack Scanning (ms):  0.1  0.2  0.1  0.2  0.2  1.2  0.1  0.1
+       Avg:   0.3, Min:   0.1, Max:   1.2]
+      [Scan RS (ms):  0.2  0.2  0.3  0.3  0.3  0.2  0.2  9.0
+       Avg:   1.3, Min:   0.2, Max:   9.0]
+      [Object Copy (ms):  162.0  181.2  161.2  150.6  143.3  117.9  12.9  155.5
+       Avg: 135.6, Min:  12.9, Max: 181.2]
+      [Termination (ms):  308.3  311.5  311.3  304.8  302.8  304.6  0.4  302.7
+       Avg: 268.3, Min:   0.4, Max: 311.5]
+         [Termination Attempts : 1 1 1 1 2 1 1 2
+          Sum: 10, Avg: 1, Min: 1, Max: 2]
+      [GC Worker End Time (ms):  799525.0  799528.1  799528.0  799521.4  799523.7  799521.0  799520.8  799520.7]
+      [Other: 155.5 ms]
+   [Clear CT:  61.0 ms]
+   [Other:  36.1 ms]
+      [Choose CSet:   0.1 ms]
+   [ 2783K->1951K(512M)]
+ [Times: user=0.00 sys=0.00, real=0.00 secs] 
+1.313: [GC pause (young), 1.09122400 secs]
+   [Parallel Time: 937.9 ms]
+      [GC Worker Start Time (ms):  1313495.7  1313523.6  1313548.7  1313608.0  1313630.7  1313651.8  1313674.9  1313699.2]
+      [Update RS (ms):  0.7  0.4  0.5  0.4  0.4  0.3  45.1  0.6
+       Avg:   6.0, Min:   0.3, Max:  45.1]
+         [Processed Buffers : 0 0 0 0 0 0 1 0
+          Sum: 1, Avg: 0, Min: 0, Max: 1]
+      [Ext Root Scanning (ms):  297.1  708.5  298.8  280.3  271.9  213.2  173.3  186.7
+       Avg: 303.7, Min: 173.3, Max: 708.5]
+      [Mark Stack Scanning (ms):  0.3  0.2  0.2  0.2  0.2  0.2  1.9  0.3
+       Avg:   0.4, Min:   0.2, Max:   1.9]
+      [Scan RS (ms):  60.5  0.4  5.3  4.1  4.5  4.4  5.3  5.2
+       Avg:  11.2, Min:   0.4, Max:  60.5]
+      [Object Copy (ms):  105.3  22.7  116.5  82.5  39.4  118.3  47.5  60.4
+       Avg:  74.1, Min:  22.7, Max: 118.3]
+      [Termination (ms):  297.8  0.3  286.1  282.7  311.5  270.5  309.0  305.6
+       Avg: 257.9, Min:   0.3, Max: 311.5]
+         [Termination Attempts : 2 1 2 2 2 2 2 2
+          Sum: 15, Avg: 1, Min: 1, Max: 2]
+      [GC Worker End Time (ms):  1314266.1  1314267.7  1314264.9  1314266.0  1314265.2  1314266.3  1314265.8  1314264.0]
+      [Other: 284.5 ms]
+   [Clear CT:  96.7 ms]
+   [Other:  56.6 ms]
+      [Choose CSet:   0.1 ms]
+   [ 2975K->2086K(512M)]
+ [Times: user=0.00 sys=0.00, real=0.00 secs] 
+1.350: [GC pause (young), 0.75806000 secs]
+   [Parallel Time: 597.4 ms]
+      [GC Worker Start Time (ms):  1350269.5  1350298.7  1350315.6  1350383.8  1350412.5  1350411.1  1350425.8  1350439.5]
+      [Update RS (ms):  0.2  0.2  47.8  0.3  9.4  0.2  0.3  0.3
+       Avg:   7.4, Min:   0.2, Max:  47.8]
+         [Processed Buffers : 0 0 1 0 2 0 0 0
+          Sum: 3, Avg: 0, Min: 0, Max: 2]
+      [Ext Root Scanning (ms):  347.8  471.7  288.4  222.1  179.3  217.9  177.9  209.4
+       Avg: 264.3, Min: 177.9, Max: 471.7]
+      [Mark Stack Scanning (ms):  0.2  0.1  0.2  0.3  1.3  0.2  0.1  0.1
+       Avg:   0.3, Min:   0.1, Max:   1.3]
+      [Scan RS (ms):  1.9  0.2  0.2  0.3  27.6  2.3  3.4  0.3
+       Avg:   4.5, Min:   0.2, Max:  27.6]
+      [Object Copy (ms):  63.9  17.2  34.9  80.1  51.4  51.7  73.4  37.6
+       Avg:  51.3, Min:  17.2, Max:  80.1]
+      [Termination (ms):  104.9  0.1  101.3  103.9  118.1  106.4  107.8  102.9
+       Avg:  93.2, Min:   0.1, Max: 118.1]
+         [Termination Attempts : 2 1 2 2 1 2 1 2
+          Sum: 13, Avg: 1, Min: 1, Max: 2]
+      [GC Worker End Time (ms):  1350793.2  1350793.0  1350793.3  1350794.5  1350804.1  1350793.4  1350793.7  1350793.6]
+      [Other: 176.4 ms]
+   [Clear CT: 123.0 ms]
+   [Other:  37.7 ms]
+      [Choose CSet:   0.1 ms]
+   [ 3110K->2158K(512M)]
+ [Times: user=0.00 sys=0.00, real=0.00 secs] 
+Heap
+ garbage-first heap   total 524288K, used 2158K [10c500000, 12c500000, 12c500000)
+  region size 1024K, 1 young (1024K), 0 survivors (0K)
+ compacting perm gen  total 20480K, used 11491K [12c500000, 12d900000, 131700000)
+   the space 20480K,  56% used [12c500000, 12d038d08, 12d038e00, 12d900000)
+No shared spaces configured.

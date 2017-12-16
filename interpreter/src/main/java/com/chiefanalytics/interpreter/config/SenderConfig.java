@@ -13,10 +13,6 @@ import java.util.Map;
 
 @Configuration
 public class SenderConfig {
-<<<<<<< HEAD
-
-=======
->>>>>>> 709009e1713d2ad30d0aab7ca5d9703e16fc468a
     @Bean
     public ProducerFactory<String, String> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
@@ -36,9 +32,6 @@ public class SenderConfig {
     public KafkaTemplate<String, String> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
-<<<<<<< HEAD
 
 }
-=======
-}
->>>>>>> 709009e1713d2ad30d0aab7ca5d9703e16fc468a
+

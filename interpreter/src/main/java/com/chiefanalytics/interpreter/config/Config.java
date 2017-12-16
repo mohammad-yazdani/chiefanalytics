@@ -13,10 +13,6 @@ public class Config {
         return new ViewDispatch();
     }
 
-<<<<<<< HEAD
-=======
     @Bean
     public RestTemplate restTemplate() { return new RestTemplate(); }
->>>>>>> 709009e1713d2ad30d0aab7ca5d9703e16fc468a
-
 }
