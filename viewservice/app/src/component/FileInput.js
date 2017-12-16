@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Input} from "semantic-ui-react";
 
 class FileInput extends Component {
 
@@ -37,17 +38,20 @@ class FileInput extends Component {
     }
 
 
+    handleFile(event, data) {
+        console.log(event);
+        console.log(data);
+        this.handleInput(this.inputValue.inputRef);
+    }
 
     render() {
         console.log("Loading upload page.");
         return (
             <div className="File-input">
                 <br/>
-                <label>Please select your file:</label>
-                <input type="file" name="file" ref={(ref) => {this.inputValue = ref;}}
-                       onChange={evt => {
-                           console.log(evt);
-                           this.handleInput(this.inputValue)
+                <Input type="file" name="file" ref={(ref) => {this.inputValue = ref;}}
+                       onChange={(event, data) => {
+                           this.handleFile(event, data)
                        }}/>
                 <br/>
                 <br/>
