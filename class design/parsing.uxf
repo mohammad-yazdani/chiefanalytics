@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>14</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>686</x>
+      <y>378</y>
+      <w>266</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>/InputFile/
+--
+- file: File
+--
+/+ getFile ( ): Object/
+/+ setFile (object: Object)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>252</x>
+      <y>644</y>
+      <w>294</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>/PDFFile/
+--
+...
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>168</x>
+      <y>504</y>
+      <w>392</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>ExcelFile
+--
++ getFile ( ): XSSFWorkbook
++ setFile (workbook: XSSFWorkbook)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>546</x>
+      <y>504</y>
+      <w>266</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>170.0;10.0;170.0;50.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>532</x>
+      <y>504</y>
+      <w>280</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>180.0;10.0;180.0;140.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>868</x>
+      <y>574</y>
+      <w>266</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>/Parser/
+--
+# data: InputFile
+--
+/- parse (data: InputFile)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>938</x>
+      <y>448</y>
+      <w>112</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1036</x>
+      <y>784</y>
+      <w>294</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>TableParser
+--
+- parse (data: ExcelFile)
+- parse (data: PDFFile)
+...
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1078</x>
+      <y>672</y>
+      <w>42</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+</diagram>

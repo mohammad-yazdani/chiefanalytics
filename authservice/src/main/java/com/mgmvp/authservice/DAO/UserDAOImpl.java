@@ -6,8 +6,10 @@ import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 
+@Transactional
 public class UserDAOImpl implements UserDAO {
 
     private static Logger log = LoggerFactory.getLogger(UserDAOImpl.class);
