@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>14</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>854</x>
+      <y>546</y>
+      <w>238</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>knowledgeBase</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>518</x>
+      <y>252</y>
+      <w>476</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>/Dispatch/
+--
+- service: String
+- package: InputFile
+--
+# status: Enum
+--
+/+ initiate(jwt: String): String/
+/+ send(gate: String, data: InputStream): void/
+/+ finish(gate: String): Boolean/
+/+ getInputStream(): InputStream/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>854</x>
+      <y>616</y>
+      <w>238</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>DataEngine</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>616</x>
+      <y>476</y>
+      <w>266</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;170.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>616</x>
+      <y>476</y>
+      <w>266</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0;170.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1106</x>
+      <y>280</y>
+      <w>224</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>DispatchException
+--
+- from: String
+- to: String
+- cause: String
+- code: Int
+--
++ *Getters*
++ *Setters*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>490</y>
+      <w>294</w>
+      <h>266</h>
+    </coordinates>
+    <panel_attributes>/Feed/
+--
+- service: String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
