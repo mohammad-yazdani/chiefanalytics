@@ -22,35 +22,53 @@ class FileList extends Component {
             })
             .then(function(data) {
                 console.log("Data:" + data);
-                let files = data.map(function (file) {
-                    return (
-                        <li key={file.name}>
-                            <h3>{file.name}</h3>
-                            <p>{file.path}</p>
-                        </li>
-                    );
-                });
-                that.setState({ files: files });
+                that.fetchList(data);
             });
+    }
+
+    fetchList(data) {
+        let that = this;
+        let files = data.map(function (file) {
+            return (
+                <div className="four wide column" key={file.name}>
+                    <h3>{file.name}</h3>
+                    <p>{file.path}</p>
+                </div>
+            );
+        });
+        that.setState({ files: files });
     }
 
 
     componentDidMount() {
-        this.getList();
+        //this.getList();
+        let data = [
+            {
+                name: "file 1",
+                path: "docs/file1"
+            },
+            {
+                name: "file 2",
+                path: "docs/file2"
+            },
+            {
+                name: "file 3",
+                path: "docs/file3"
+            },
+            {
+                name: "file 4",
+                path: "docs/file4"
+            }
+        ];
+        this.fetchList(data);
     }
 
     render() {
         console.log("Rendering file list.");
         return (
-            <div className="File-list">
-                <header className="File-list-header">
-                    <h1 className="File-list-title">List of files:</h1>
-                </header>
-                <ul>
-                    {this.state.files}
-                </ul>
+            <div className="ui grid">
+                {this.state.files}
             </div>
-
         );
     }
 }

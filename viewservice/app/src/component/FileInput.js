@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Input} from "semantic-ui-react";
+import {Button, Input} from "semantic-ui-react";
 
 class FileInput extends Component {
 
@@ -7,6 +7,7 @@ class FileInput extends Component {
         super();
         this.state = {
             files: [],
+            adding: false,
         };
         this.inputValue = [];
     }
@@ -44,15 +45,24 @@ class FileInput extends Component {
         this.handleInput(this.inputValue.inputRef);
     }
 
+    dummyHandle() {
+        console.log(this.state.files);
+        this.setState({files: this.state.files.concat({
+            name: "file" + Math.random(), path: "docs"
+        })});
+    }
+
     render() {
         console.log("Loading upload page.");
+        let display = this.state.adding ? <Input type="file" name="file" ref={(ref) => {this.inputValue = ref;}}
+                                                 onChange={(event, file) => {
+                                                     this.dummyHandle()
+                                                 }}/> :
+            <Button onClick={() => this.dummyHandle()}>Add</Button>;
         return (
             <div className="File-input">
                 <br/>
-                <Input type="file" name="file" ref={(ref) => {this.inputValue = ref;}}
-                       onChange={(event, data) => {
-                           this.handleFile(event, data)
-                       }}/>
+                { display }
                 <br/>
                 <br/>
             </div>
