@@ -3,6 +3,9 @@ package com.chiefanalytics.interpreter.controller;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,22 +42,6 @@ public class ExcelController implements Controller {
 
     private static String MY_FILE = "testFile.xlsx";
 
-//    public boolean exploreKeyValue(XSSFSheet sheet, int row, int cell, int rowEndNum, int cellEndNum) {
-//        if (row < 0 || row > rowEndNum || cell < 0 || cell > cellEndNum ||
-//                sheet.getRow(row).getCell(cell).getStringCellValue() == "visited") {
-//            return false;
-//        }
-//        int nextCell = cell + 1;
-//        //System.out.printf("%s string \n", sheet.getRow(row).getCell(nextCell).getStringCellValue());
-//        if (sheet.getRow(row).getCell(nextCell).getCellTypeEnum() == CellType.STRING ||
-//                sheet.getRow(row).getCell(nextCell).getCellTypeEnum() == CellType.NUMERIC) {
-//            sheet.getRow(row).getCell(cell).setCellValue("visited");
-//            sheet.getRow(row).getCell(nextCell).setCellValue("visited");
-//            return true;
-//        }
-//        return false;
-//
-//    }
 
     public boolean exploreTable(XSSFSheet sheet, int row, int cell, int rowEndNum, int cellEndNum) {
         if (row < 0 || row > rowEndNum || cell < 0 || cell > cellEndNum ||
@@ -110,6 +97,10 @@ public class ExcelController implements Controller {
             //Get first/desired sheet from the workbook
             XSSFSheet sheet = workbook.getSheetAt(0);
 
+            // JSON data
+            JSONObject json = new JSONObject();
+
+
             int keyValueCount = 0;
             int tableCount = 0;
             int cellEnd = 0;
@@ -122,13 +113,31 @@ public class ExcelController implements Controller {
                 }
             }
 
-            //System.out.printf("%d row \n", rowEnd);
-            //System.out.printf("%d cellEnd \n", cellEnd);
+            // store the original cell values in JSON
+            for (int rowIndex = 0; rowIndex <= rowEnd; ++rowIndex) {
+                JSONObject rowData = new JSONObject();
+                for (int cellIndex = 0; cellIndex <= cellEnd; ++cellIndex) {
+                    try {
+                        if (sheet.getRow(rowIndex).getCell(cellIndex).getCellTypeEnum() == CellType.STRING) {
+                            //System.out.printf("row: %d, col: %d, val: %s \n", rowIndex, cellIndex, sheet.getRow(rowIndex).getCell(cellIndex).getStringCellValue());
+                            rowData.put(String.valueOf(cellIndex), sheet.getRow(rowIndex).getCell(cellIndex).getStringCellValue());
+                        }
+                    } catch (Exception e) {
+                        continue;
+                    }
+                }
+                JSONArray cellArray = new JSONArray();
+                cellArray.put(rowData);
+                try {
+                    json.put(String.valueOf(rowIndex), cellArray);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
 
             for (int rowIndex = 0; rowIndex <= rowEnd; ++rowIndex) {
                 for (int cellIndex = 0; cellIndex <= cellEnd; ++cellIndex) {
-//                    System.out.printf("%d row \n", rowIndex);
-//                    System.out.printf("%d cell \n", cellIndex);
                     try {
                         if (sheet.getRow(rowIndex).getCell(cellIndex).getCellTypeEnum() == CellType.STRING) {
 //                            if (exploreKeyValue(sheet, rowIndex, cellIndex, rowEnd, cellEnd)) {
@@ -145,6 +154,7 @@ public class ExcelController implements Controller {
             }
 
             log.info("Getting file: "+ f.getCanonicalPath());
+            log.info("JSON: "+ json);
             System.out.printf("%d Table count \n", tableCount);
         } catch (IOException e) {
             log.error(e.getMessage());
