@@ -6,6 +6,8 @@
       <module name="authservice_test" target="1.8" />
       <module name="configservice_main" target="1.8" />
       <module name="configservice_test" target="1.8" />
+      <module name="engine_main" target="1.8" />
+      <module name="engine_test" target="1.8" />
       <module name="mgmvp_main" target="1.8" />
       <module name="mgmvp_test" target="1.8" />
     </bytecodeTargetLevel>

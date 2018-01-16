@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/authservice.iml" filepath="$PROJECT_DIR$/.idea/modules/authservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/authservice/authservice.iml" filepath="$PROJECT_DIR$/authservice/authservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/authservice_main.iml" filepath="$PROJECT_DIR$/.idea/modules/authservice_main.iml" group="authservice" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/authservice_test.iml" filepath="$PROJECT_DIR$/.idea/modules/authservice_test.iml" group="authservice" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/chiefanalytics.iml" filepath="$PROJECT_DIR$/.idea/modules/chiefanalytics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/configservice.iml" filepath="$PROJECT_DIR$/.idea/modules/configservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/configservice/configservice.iml" filepath="$PROJECT_DIR$/configservice/configservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/configservice_main.iml" filepath="$PROJECT_DIR$/.idea/modules/configservice_main.iml" group="configservice" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/configservice_test.iml" filepath="$PROJECT_DIR$/.idea/modules/configservice_test.iml" group="configservice" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mgmvp.iml" filepath="$PROJECT_DIR$/.idea/modules/mgmvp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/engine/engine.iml" filepath="$PROJECT_DIR$/engine/engine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/engine_main.iml" filepath="$PROJECT_DIR$/.idea/modules/engine_main.iml" group="engine" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/engine_test.iml" filepath="$PROJECT_DIR$/.idea/modules/engine_test.iml" group="engine" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mgmvp_main.iml" filepath="$PROJECT_DIR$/.idea/modules/mgmvp_main.iml" group="mgmvp" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mgmvp_test.iml" filepath="$PROJECT_DIR$/.idea/modules/mgmvp_test.iml" group="mgmvp" />
     </modules>
