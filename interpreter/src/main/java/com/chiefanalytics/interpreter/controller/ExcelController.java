@@ -98,7 +98,7 @@ public class ExcelController implements Controller {
             XSSFSheet sheet = workbook.getSheetAt(0);
 
             // JSON data
-            JSONObject json = new JSONObject();
+            JSONObject tableJSON = new JSONObject();
 
 
             int keyValueCount = 0;
@@ -119,7 +119,6 @@ public class ExcelController implements Controller {
                 for (int cellIndex = 0; cellIndex <= cellEnd; ++cellIndex) {
                     try {
                         if (sheet.getRow(rowIndex).getCell(cellIndex).getCellTypeEnum() == CellType.STRING) {
-                            //System.out.printf("row: %d, col: %d, val: %s \n", rowIndex, cellIndex, sheet.getRow(rowIndex).getCell(cellIndex).getStringCellValue());
                             rowData.put(String.valueOf(cellIndex), sheet.getRow(rowIndex).getCell(cellIndex).getStringCellValue());
                         }
                     } catch (Exception e) {
@@ -129,7 +128,7 @@ public class ExcelController implements Controller {
                 JSONArray cellArray = new JSONArray();
                 cellArray.put(rowData);
                 try {
-                    json.put(String.valueOf(rowIndex), cellArray);
+                    tableJSON.put(String.valueOf(rowIndex), cellArray);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -140,9 +139,6 @@ public class ExcelController implements Controller {
                 for (int cellIndex = 0; cellIndex <= cellEnd; ++cellIndex) {
                     try {
                         if (sheet.getRow(rowIndex).getCell(cellIndex).getCellTypeEnum() == CellType.STRING) {
-//                            if (exploreKeyValue(sheet, rowIndex, cellIndex, rowEnd, cellEnd)) {
-//                                ++keyValueCount;
-//                            }
                             if (exploreTable(sheet, rowIndex, cellIndex, rowEnd, cellEnd)) {
                                 ++tableCount;
                             }
@@ -154,8 +150,15 @@ public class ExcelController implements Controller {
             }
 
             log.info("Getting file: "+ f.getCanonicalPath());
-            log.info("JSON: "+ json);
-            System.out.printf("%d Table count \n", tableCount);
+            JSONObject finalJSON = new JSONObject();
+            try {
+                finalJSON.put("data", tableJSON);
+                finalJSON.put("tableCount", tableCount);
+            }
+            catch (JSONException e) {
+                e.printStackTrace();
+            }
+            System.out.println(finalJSON);
         } catch (IOException e) {
             log.error(e.getMessage());
         }
