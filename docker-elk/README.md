@@ -1,5 +1,16 @@
 # Docker ELK stack
 
+1. Download and install Docker
+2. Pull this branch and cd into docker-elk directory
+3. Run `docker-compose up -d`
+4. Run `nc localhost 5000 < cars.csv`
+5. Go to http://localhost:5601
+6. You will see a Kibana app. Log in with username: elastic and password: changeme
+7. Go to Monitoring tab -> Index Patterns (under Elasticsearch) and create the new index pattern.
+8. Go to Discover tab and you can see the data ingested from cars.csv
+
+=========================================================================================================================================
+
 [![Join the chat at https://gitter.im/deviantony/docker-elk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deviantony/docker-elk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Elastic Stack version](https://img.shields.io/badge/ELK-6.0.0-blue.svg?style=flat)](https://github.com/deviantony/docker-elk/issues/212)
 [![Build Status](https://api.travis-ci.org/deviantony/docker-elk.svg?branch=x-pack)](https://travis-ci.org/deviantony/docker-elk)
