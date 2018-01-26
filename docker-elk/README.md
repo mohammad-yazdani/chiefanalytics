@@ -9,3 +9,8 @@ Follow these steps to replicate my example
 7. Head back to the Kibana dashboard and head to the Discover tab
 8. Elasticsearch should have indexed cars.csv with the index name cars. If not, repeat the steps above.
 9. Create the new index pattern, head back to the Discover tab, and explore the extracted data
+
+
+Miscellaneous
+
+To see how Logstash filters the data, head to logstash/pipeline/logstash.conf
