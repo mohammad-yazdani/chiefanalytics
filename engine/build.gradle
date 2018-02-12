@@ -38,6 +38,9 @@ dependencies {
 	compile('org.springframework.kafka:spring-kafka')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-websocket')
+
+	compile group: 'com.fasterxml', name: 'jackson-module-json-org', version: '0.9'
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
