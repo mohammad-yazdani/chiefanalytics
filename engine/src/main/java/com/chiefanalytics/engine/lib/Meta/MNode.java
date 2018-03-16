@@ -25,7 +25,6 @@ public abstract class MNode {
     protected abstract int merge(MNode mNode);
 
     public abstract MNode branch(Query query);
-    public abstract MNode fork(Query query);
 
     public int commit() throws NotCommittedOffset {
         if (this.offset.size() > 0) throw new NotCommittedOffset();

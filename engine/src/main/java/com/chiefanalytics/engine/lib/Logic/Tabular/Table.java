@@ -8,8 +8,8 @@ public class Table extends MNode {
     private String[][] data;
     private boolean isRoot;
 
-    private Table(Table parent) {
-        this.data = null;
+    private Table(Table parent, String subSet[][]) {
+        this.data = subSet;
         this.isRoot = false;
         this.setParent(parent);
     }
@@ -26,16 +26,24 @@ public class Table extends MNode {
 
     @Override
     public MNode branch(Query query) {
-        MNode child = new Table(this);
-        this.addToOffset(child);
-        // TODO : Based on query, store the queried information on a new MNode and return it.
-        return child;
-    }
 
-    @Override
-    public MNode fork(Query query) {
-        // TODO : Based on query, store the queried information on a new MNode and return it.
-        return new Table(this.data);
+        int startRow = Integer.parseInt(query.pop());
+        int startCol = Integer.parseInt(query.pop());
+        int endRow = Integer.parseInt(query.pop());
+        int endCol = Integer.parseInt(query.pop());
+
+        if (startRow > endRow || startCol > endCol) return null; // TODO : Create exception
+
+        String[][] subSet = new String[endRow - startCol][endCol - endRow];
+
+        for (int i = startRow; i <= endRow; i++) {
+            System.arraycopy(this.data[i], startCol, subSet[i - startRow], 0, endCol + 1 - startCol);
+        }
+
+        MNode child = new Table(this, subSet);
+        this.addToOffset(child);
+
+        return child;
     }
 
     @Override
